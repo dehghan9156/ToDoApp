@@ -1,0 +1,34 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+dist/
+build/
+*.log
+
+# Virtual Environment
+venv/
+env/
+*.env
+
+# Django specific
+db.sqlite3
+*.log
+
+# PyCharm settings (if you use PyCharm)
+.idea/
+
+# VS Code settings (if you use VS Code)
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Other common ignore files
+*.bak
+*.swp

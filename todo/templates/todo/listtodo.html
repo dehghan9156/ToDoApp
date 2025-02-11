@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <hr class="my-4">
+    {% for todo in todos %}
+        {% if request.user.id == todo.user.id %}
+            {% if not todo.complate %}
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded">
+                    <h5 class="m-0">{{ todo.title }}</h5>
+
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'todo:delete_todo' todo.id %}" class="btn btn-danger me-2">Delete Task</a>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-badge-down">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M17 13v-6l-5 4l-5 -4v6l5 4z"/>
+                                </svg>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'todo:done_todo' todo.id %}">Done</a></li>
+                                <li><a class="dropdown-item" href="{% url 'todo:update_todo' todo.id %}">Edit</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    <h4 class="mt-4">Complated Tasks</h4>
+
+    {% for todo in todos %}
+        {% if request.user.id == todo.user.id %}
+            {% if todo.complate %}
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded done-task">
+                    <h5 class="m-0 text-decoration-line-through text-muted">
+                        {{ todo.title }}
+                    </h5>
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'todo:delete_todo' todo.id %}" class="btn btn-danger me-2">Delete Task</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+
+    <br>
+    <a href="{% url 'todo:create_todo' %}" class="btn btn-primary">Add Task</a>
+{% endblock %}
