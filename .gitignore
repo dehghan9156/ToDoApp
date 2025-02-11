@@ -17,6 +17,7 @@ env/
 
 # Django specific
 db.sqlite3
+
 *.log
 
 # PyCharm settings (if you use PyCharm)
