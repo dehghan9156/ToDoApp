@@ -12,6 +12,7 @@ class ListToDoView(ListView):
     context_object_name = 'todos'
     template_name = 'todo/listtodo.html'
     ordering = 'complate','created_date'
+
 class CreateToDoView(LoginRequiredMixin,CreateView):
     model = ToDo
     # fields = ['title']

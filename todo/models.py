@@ -13,3 +13,6 @@ class ToDo(models.Model):
 
     def __str__(self):
         return f"{self.title}-{self.created_date.date()}"
+
+    def show_username(self):
+        return f"{self.user.username}"
