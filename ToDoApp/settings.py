@@ -126,3 +126,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure--_w1y#wcq2wfnvmi5l^nxo@o1syu74^ah-+znu)m#5tc#l0^3d')
+ALLOWED_HOSTS = ['your-service-name.onrender.com']
